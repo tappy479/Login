@@ -1,24 +1,24 @@
 package jp.co.f1.spring.login.entity;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jp.co.f1.spring.login.annotation.Unused;
 
 @Entity
 @Table(name = "login_user")
 public class LoginUser {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
-	private Long userId;
+    @Id
+    @GeneratedValue
+    private UUID userId; // UUID型のID
 
 	@Column(name = "user_name")
 	@NotEmpty(message = "ユーザー名は必須です")
@@ -34,14 +34,15 @@ public class LoginUser {
 	@Column(name = "email")
 	@NotEmpty(message = "メールアドレスは必須です")
 	@Email(message = "有効なメールアドレスを入力してください。")
+	@Unused
 	private String email;
+	
 
-
-	public Long getUserId() {
+	public UUID getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(UUID userId) {
 		this.userId = userId;
 	}
 
@@ -76,6 +77,8 @@ public class LoginUser {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 
 }
