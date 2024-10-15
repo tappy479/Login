@@ -3,6 +3,7 @@ package jp.co.f1.spring.login.controller;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,10 +104,26 @@ public class LoginController {
         	return mav;
         }
         mav.setViewName("success");
-        mav.addObject("message", "ユーザー名:"+user.getUsername()+", パスワード:"+user.getPassword());
+        mav.addObject("loginUser",user);
     	return mav;
     	
     }
+	
+	@PostMapping("/updateDB")
+	public ModelAndView userUpdateDB(@ModelAttribute LoginUser loginUser ,ModelAndView mav, RedirectAttributes redirectAttributes) {
+		UUID userId = loginUser.getUserId();
+		String newPassword = loginUser.getPassword();
+		
+		LoginUser user = userinfo.findByUserId(userId);
+		user.setPassword(newPassword);
+		userinfo.saveAndFlush(user);
+	    
+	    redirectAttributes.addFlashAttribute("completed", "パスワードの更新が完了しました。");
+	    mav=new ModelAndView("redirect:/");
+	    return mav;
+	}
+	
+	
 
 
 	//年月日のリストを生成する
