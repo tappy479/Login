@@ -9,7 +9,6 @@ import java.lang.annotation.Target;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
-import jp.co.f1.spring.login.validator.UnusedValidator;
 
 @Documented
 @Constraint(validatedBy = UnusedValidator.class) //この後に作成するバリデーションクラスを指定する
