@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center; /* 水平方向中央 */
+    align-items: center;    /* 垂直方向中央 */
+    height: 100vh;         /* ビューポートの高さ */
+    margin: 0;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    /* ここに必要なスタイルを追加 */
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left; /* ラベルを左寄せ */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-msg {
+    color: red;
+    margin-bottom: 1rem;
+    display: block; /* エラーメッセージをブロック要素にする */
+}
+
+a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.birthday-group {
+    display: flex; /* 横並びにするため */
+    justify-content: space-between; /* 各セレクトボックスの間隔を均等に */
+    margin-top: 1rem; /* 上部のマージン */
+}
+
+.birthday-group select {
+    flex: 1; /* 各セレクトボックスが同じ幅を持つようにする */
+    margin-right: 5px; /* 右側の間隔 */
+}
+
+.birthday-group select:last-child {
+    margin-right: 0; /* 最後のセレクトボックスにはマージンを付けない */
+}
+

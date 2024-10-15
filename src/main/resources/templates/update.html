@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>パスワード確認</title>
+<link href="login.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="login-container">
+	<p th:if="${error != null}" th:text="${error}" class="error-msg"></p>
+  <h1>生年月日とメールアドレスを入力してください</h1>
+  <form action="/update" method="post">
+	  <div class="form-group">
+    <label for="birthday">生年月日</label>
+    <div>
+        <select name="birthdayYear" required>
+            <option th:each="year : ${years}" th:value="${year}" th:text="${year}"></option>
+        </select>
+        <select name="birthdayMonth" required>
+            <option th:each="month : ${months}" th:value="${month}" th:text="${month}"></option>
+        </select>
+        <select name="birthdayDay" required>
+            <option th:each="day : ${days}" th:value="${day}" th:text="${day}"></option>
+        </select>
+    </div>
+</div>
+    <div class="form-group">
+      <label for="email">メールアドレス</label>
+      <input type="text" id="email" name="email">
+    </div>
+
+    <button type="submit">確認</button>
+  </form> 
+</div>
+</html>

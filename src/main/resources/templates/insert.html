@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+    <link href="login.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="login-container">
+    <h1>新規登録</h1>
+    <form action="/insert" method="post" th:object="${loginUser}">
+        <div class="form-group">
+            <p class="error-msg" th:if="${message} != null" th:text="${message}"></p>
+            <label for="username">ユーザー名</label>
+            <input type="text" id="username" name="username" th:field="*{username}">
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:errorclass="error-msg"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="password">パスワード</label>
+            <input type="password" id="password" name="password" th:field="*{password}">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="error-msg"></p>
+        </div>
+
+<div class="form-group">
+    <label for="birthday">生年月日</label>
+    <div class="birthday-group">
+        <select name="birthdayYear" required>
+            <option th:each="year : ${years}" th:value="${year}" th:text="${year}"></option>
+        </select>年
+        <select name="birthdayMonth" required>
+            <option th:each="month : ${months}" th:value="${month}" th:text="${month}"></option>
+        </select>月
+        <select name="birthdayDay" required>
+            <option th:each="day : ${days}" th:value="${day}" th:text="${day}"></option>
+        </select>日
+    </div>
+    <p th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" th:errorclass="error-msg"></p>
+</div>
+
+        <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="text" id="email" name="email" th:field="*{email}">
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="error-msg"></p>
+        </div>
+
+        <button type="submit">登録</button>
+    </form>
+</div>
+</body>
+</html>
