@@ -1,11 +1,10 @@
-package jp.co.f1.spring.login.validator;
+package jp.co.f1.spring.login.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import jp.co.f1.spring.login.annotation.Unused;
 import jp.co.f1.spring.login.entity.LoginUser;
 import jp.co.f1.spring.login.repository.LoginUserRepository;
 
